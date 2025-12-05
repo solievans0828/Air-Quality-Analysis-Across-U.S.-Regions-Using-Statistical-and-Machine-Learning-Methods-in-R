@@ -1,11 +1,4 @@
 # Air-Quality-Analysis-Across-U.S.-Regions-Using-Statistical-and-Machine-Learning-Methods-in-R
-Below is the **clean GitHub-ready Markdown version** of your README.md — no emojis, fully formatted, and updated with your **exact repository structure**.
-
-You can paste this directly into a GitHub README.
-
----
-
-# Air Quality Analysis Across U.S. Regions Using Statistical and Machine Learning Methods in R
 
 **Author:** Soli Evans
 **Course:** Practical Statistics & Programming Using R
