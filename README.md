@@ -1,185 +1,173 @@
 # Air-Quality-Analysis-Across-U.S.-Regions-Using-Statistical-and-Machine-Learning-Methods-in-R
-Author: Soli Evans
-Course: Practical Statistics & Programming Using R
-Dataset: EPA Daily AQI by CBSA (2024)
-Source: https://www.epa.gov/outdoor-air-quality-data/download-daily-data
+Below is the **clean GitHub-ready Markdown version** of your README.md — no emojis, fully formatted, and updated with your **exact repository structure**.
 
-Project Overview
+You can paste this directly into a GitHub README.
 
-This project analyzes the U.S. Environmental Protection Agency (EPA) 2024 Daily Air Quality Index (AQI) dataset to examine regional and seasonal air quality patterns across the United States. Using descriptive statistics, inferential statistical tests, and machine learning models in R, the project evaluates variations in AQI and develops predictive models to classify AQI health categories.
+---
 
-The full analysis, results, and code are documented in the final report. 
+# Air Quality Analysis Across U.S. Regions Using Statistical and Machine Learning Methods in R
 
-HI 2021 Final Report (2)
+**Author:** Soli Evans
+**Course:** Practical Statistics & Programming Using R
+**Dataset:** EPA Daily AQI by CBSA (2024)
+**Source:** [https://www.epa.gov/outdoor-air-quality-data/download-daily-data](https://www.epa.gov/outdoor-air-quality-data/download-daily-data)
 
-Research Aims
-Aim 1:
+---
 
-Assess whether mean AQI differs across U.S. regions using:
+## Project Overview
 
-One-way ANOVA
+This project analyzes the U.S. Environmental Protection Agency’s (EPA) 2024 Daily Air Quality Index (AQI) dataset to evaluate regional and seasonal differences in air quality across the United States. Using descriptive statistics, inferential statistical testing, and supervised machine learning models in R, the project identifies patterns in AQI and builds predictive classifiers for AQI health categories.
 
-Two-way ANOVA (Region × Month)
+All analysis, results, and figures are documented in the final report. 
 
-Aim 2:
+---
 
-Build predictive models to classify AQI category ("Good", "Moderate", "Unhealthy") based on:
+## Research Aims
 
-AQI value
+### Aim 1
 
-Region
+Determine whether mean AQI differs across U.S. regions using
 
-Month
+* One-way ANOVA
+* Two-way ANOVA (Region × Month)
 
-Defining pollutant
+### Aim 2
+
+Develop predictive classification models for AQI categories ("Good", "Moderate", "Unhealthy") using:
+
+* AQI
+* Region
+* Month
+* Defining pollutant
 
 Models implemented:
 
-Decision Tree (CART)
+* Decision Tree (CART)
+* Random Forest
 
-Random Forest
+---
 
-Dataset Description
+## Dataset Description
 
-Total Observations: ~171,648 (after cleaning)
+* Total Observations: approximately 171,648 after preprocessing
+* Variables include: AQI, date fields, pollutant type, CBSA information, reporting site counts
+* Data cleaning steps:
 
-Variables include: AQI, Date, Location, Pollutant Type, Reporting Sites
+  * Removal of corrupted header row
+  * Parsing of CBSA fields and extraction of state identifiers
+  * Assignment of states to Census regions
+  * Creation of month indicators
+  * Collapsing of EPA’s six AQI categories into three
 
-Data Cleaning Steps:
+---
 
-Removed corrupted header row
+## Methods Summary
 
-Parsed fields and reconstructed dataset
+### Statistical Methods
 
-Extracted state codes and assigned regions
+* Descriptive statistics to summarize AQI distribution
+* Boxplots and line charts to visualize regional and seasonal trends
+* One-way ANOVA to test regional AQI differences
+* Two-way ANOVA to test Region × Month interaction effects
 
-Collapsed EPA’s 6-category AQI system into 3 classes
+### Machine Learning Methods
 
-Created month indicators
+* Decision Tree model with 5-fold cross-validation
+* Random Forest model with variable importance evaluation
+* Train-test split: 80/20
 
-Methods Summary
-Statistical Analyses
+---
 
-Descriptive statistics to summarize AQI distribution
+## Key Findings
 
-Boxplots and time-series line charts for regional and seasonal trends
+### Regional Differences
 
-One-way ANOVA: Tested AQI differences across regions
+* Significant differences in mean AQI across regions
+* South and West regions demonstrate the highest AQI values on average
+* Midwest and Northeast tend to have lower AQI levels
 
-Two-way ANOVA: Examined the interaction between region and month
+### Seasonal Trends
 
-Machine Learning Models
+* AQI peaks during summer months nationwide
+* Western region shows the sharpest seasonal spikes, influenced by wildfire activity
 
-Decision Tree: Achieved 100% accuracy due to clean class boundaries
+### Model Performance
 
-Random Forest: Near-perfect accuracy with top predictors:
+* Decision Tree achieved 100% classification accuracy
+* Random Forest achieved near-perfect accuracy
+* Most important predictors: AQI value, month, region, pollutant type
 
-AQI
+---
 
-Month
+## Repository Structure
 
-Region
+```
+project-folder
+┣ README.md
+┣ HI 2021 Final Report 2.pdf
+┣ HI 2021 Final Code.R
+┗ data/
+  ┗ daily_aqi_by_cbsa_2024.csv
+```
 
-Pollutant type
+---
 
-Key Findings
-1. Regional Differences
+## How to Run the Analysis
 
-Statistically significant differences in mean AQI across regions
+### 1. Install Required R Packages
 
-South and West exhibit higher AQI on average
-
-Northeast and Midwest maintain lower levels
-
-2. Seasonal Trends
-
-AQI peaks during summer months, especially in the West
-
-Extreme outliers in the West primarily linked to wildfire activity
-
-3. Predictive Modeling
-
-Both ML models achieved near-perfect accuracy
-
-EPA’s AQI thresholds create highly separable classification groups
-
- Repository Structure 
- project-folder
- ┣  README.md
- ┣ HI 2021 Final Report 2.pdf
- ┣ HI 2021 Final Code.R
- ┗  data/
-   ┗ daily_aqi_by_cbsa_2024.csv
-
-How to Run the Analysis
-1. Install Required R Packages
+```r
 install.packages(c("caret", "rpart", "rpart.plot", "randomForest", "ggplot2"))
+```
 
-2. Load and Run Code
+### 2. Run the Code
 
-The full, reproducible R script is located in Appendix A of the report. 
+All code used in this analysis is contained in **HI 2021 Final Code.R**.
 
-HI 2021 Final Report (2)
+Example execution:
 
+```r
+source("HI 2021 Final Code.R")
+```
 
-To run the analysis:
+This script will:
 
-source("appendix_A_code.R")
+* Clean and preprocess the dataset
+* Generate descriptive statistics and visualizations
+* Conduct ANOVA tests
+* Train and evaluate machine learning models
 
+---
 
-This will:
-
-Clean & preprocess the dataset
-
-Generate descriptive statistics & visualizations
-
-Run ANOVA tests
-
-Train/validate decision tree and random forest models
-
-Visual Outputs
+## Visual Outputs
 
 Figures included in the report:
 
-AQI Distribution by Region
+* AQI Distribution by Region
+* Average Monthly AQI by Region
+* AQI Class Distribution (3-level)
+* Decision Tree Classification Model
 
-Average Monthly AQI by Region
+Descriptions and images are located in Appendix C of the final report. 
 
-AQI Class Distribution (3-level)
+---
 
-Decision Tree Model Visualization
+## Limitations
 
-Descriptions & images appear in Appendix C of the final report. 
+* Extreme AQI outliers resulting from wildfire events
+* Meteorological variables not included
+* Collapsing AQI categories may obscure some nuance
 
-HI 2021 Final Report (2)
+---
 
-Limitations
+## Future Directions
 
-Extreme outliers due to wildfire events
+* Incorporate meteorological data (temperature, humidity, wind speed)
+* Build spatiotemporal forecasting models
+* Deploy an interactive dashboard for real-time AQI monitoring
 
-Meteorological data not included
+---
 
-Collapsing AQI categories may reduce nuance
+## References
 
-Future Directions
-
-Integrate meteorological variables (temperature, humidity, wind patterns)
-
-Build spatiotemporal models
-
-Deploy predictive dashboards for public health monitoring
-
-References
-
-A full reference list is available in the final report. 
-
-HI 2021 Final Report (2)
-
-
-Key sources include peer-reviewed research on air pollution, AQI definitions, and EPA documentation.
-
-Citation
-
-If referencing this project in academic work:
-
-Evans, S. (2024). Air Quality Analysis Across U.S. Regions Using Statistical and Machine Learning Methods in R. Practical Statistics & Programming Using R. EPA Daily AQI Dataset.
+Full APA-formatted references appear in the final report. 
